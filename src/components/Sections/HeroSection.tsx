@@ -1,4 +1,6 @@
 import React from 'react'
+import { MdArrowOutward } from "react-icons/md";
+
 
 const HeroSection = () => {
     const headings = [
@@ -19,25 +21,28 @@ const HeroSection = () => {
                                 </div>
                             </div>
                         );
-                        // if (index === 1) {
-                        //     return (
-                        //         <div className='masked ' key={index}>
-                        //             <div className='w-fit flex '>
-                        //                 <div className='bg-green-500 relative top-[0.5vw] rounded-lg h-[6.5vw] w-[9vw]'></div>
-                        //                 <h1 key={index} className='text-[9vw] h-full flex items-center uppercase leading-[7.5vw]  tracking-tighter '>{e}</h1>
-                        //             </div>
-                        //         </div>
-                        //     );
-                        // }
-                        // return (
-                        //     <div className='masked ' key={index} >
-                        //         <div className='w-fit flex '>
-                        //             <h1 key={index} className='text-[9vw] h-full flex items-center uppercase leading-[7.5vw]  tracking-tighter '>{e}</h1>
-                        //         </div>
-                        //     </div>
-                        // );
                     })
                 }
+            </div>
+            <div className='mt-[10vw] border-t-[1px] border-zinc-700'>
+                <div className='px-[4vw] pt-[1vw] flex justify-between items-center'>
+                    {
+                        ["For Public and Private companies", "from the First pitch to IPO", "Start the Project"].map((e, index) => {
+                            if (index === 2) {
+                                return (
+                                    <div className='px-4 py-2 flex items-center gap-2 cursor-pointer hover:bg-zinc-100 hover:text-zinc-900 transition-all duration-400  text-[1.5vw]  lg:text-[1vw] rounded-full uppercase text-white border-zinc-300 border-[1px]'>
+                                        <p className=' whitespace-nowrap'>{e}</p>
+                                        <MdArrowOutward />
+
+                                    </div>
+                                );
+                            }
+                            return (
+                                <p key={index} className='text-[1.5vw]  lg:text-[1vw] whitespace-nowrap capitalize font-medium'>{e}</p>
+                            );
+                        })
+                    }
+                </div>
             </div>
         </div>
     )
