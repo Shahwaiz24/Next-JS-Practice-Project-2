@@ -30,7 +30,7 @@ const HeroSection = () => {
                         ["For Public and Private companies", "from the First pitch to IPO", "Start the Project"].map((e, index) => {
                             if (index === 2) {
                                 return (
-                                    <div className='px-4 py-2 flex items-center gap-2 cursor-pointer hover:bg-zinc-100 hover:text-zinc-900 transition-all duration-400  text-[1.5vw]  lg:text-[1vw] rounded-full uppercase text-white border-zinc-300 border-[1px]'>
+                                    <div key={index} className='px-4 py-2 flex items-center gap-2 cursor-pointer hover:bg-zinc-100 hover:text-zinc-900 transition-all duration-400  text-[1.5vw]  lg:text-[1vw] rounded-full uppercase text-white border-zinc-300 border-[1px]'>
                                         <p className=' whitespace-nowrap'>{e}</p>
                                         <MdArrowOutward />
 
