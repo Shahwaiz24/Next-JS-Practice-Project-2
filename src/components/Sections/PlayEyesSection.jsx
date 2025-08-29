@@ -14,9 +14,9 @@ const PlayEyesSection = () => {
 
             let angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
             setlineRotate(angle);
-            let moveX = (deltaX / window.innerWidth) * 80; 
+            let moveX = (deltaX / window.innerWidth) * 80;
             let moveY = (deltaY / window.innerHeight) * 80;
-            let scale = 1.1; 
+            let scale = 1.1;
 
             setEyeTransform({ x: moveX, y: moveY, scale });
         });
@@ -25,7 +25,7 @@ const PlayEyesSection = () => {
 
     return (
         <div className='lg:block hidden w-full h-screen bg-white'>
-            <div className='w-full h-full bg-center bg-cover bg-[url("/images/ochi-animated-bg.jpg")] flex items-center justify-center'>
+            <div data-scroll data-scroll-speed="-.2" className='w-full h-full bg-center bg-cover bg-[url("/images/ochi-animated-bg.jpg")] flex items-center justify-center'>
                 <div className='flex items-center justify-between gap-16'>
 
                     <div className='w-[15vw] h-[15vw] rounded-full bg-white flex items-center justify-center'>

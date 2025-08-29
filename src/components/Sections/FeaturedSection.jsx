@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react'
+import { MdArrowOutward } from "react-icons/md";
 
 const FeaturedSection = () => {
     const items = [
@@ -58,16 +59,20 @@ const FeaturedSection = () => {
     const setHovered = (isHovered, index, title) => {
         setisImageHovered({ hovered: isHovered, index: index, "title": title });
     }
+    const splitCharacters = (word) => {
+        if (typeof word !== "string") return [];
+        return word.split("") ?? [];
+    };
     return (
         <div className='w-full py-[5vw]'>
             <div className='text-[5vw] text-white leading-none tracking-tight border-b-[1px] pb-[4vw] border-zinc-700'>
                 <h1 className='px-[4vw]'>Featured projects</h1>
             </div>
             <div className='px-[4vw] mt-[5vw]'>
-                <div className="flex flex-wrap gap-[2vw] w-full">
+                <div className="flex mb-[5vw] flex-wrap gap-[2vw] w-full">
                     {items.map((e, index) => {
                         const isLeft = index % 2 !== 0;
-                        let leftElement = Math.floor(window.innerWidth / 2);
+                        let title = e.title;
                         return (
                             <div
                                 key={index}
@@ -85,8 +90,8 @@ const FeaturedSection = () => {
                 text-[#CDEA68] text-[4vw] whitespace-nowrap text-semibold tracking-wider leading-none z-[9] transition-all duration-500
             `}
                                 >
-                                    {e.title.split.map((e, i) => {
-                                        <span key={i}>{e}</span>
+                                    {splitCharacters(title).map((e, i) => {
+                                        return <span key={i}>{e}</span>
                                     })}
                                 </h1>
                                 <div className='flex w-full flex-row items-center justify-start gap-[0.5vw]'>
@@ -103,6 +108,16 @@ const FeaturedSection = () => {
                             </div>
                         );
                     })}
+                </div>
+                <div className='flex justify-center items-center w-full'>
+                    <div
+                        className='px-[1.8vw] py-[1vw] h-[4vw]  w-[19.5vw]  uppercase whitespace-nowrap gap-[2vw] rounded-full bg-zinc-900 flex items-center justify-between lg:text-[1vw] text-[2vw] group hover:bg-black transition-all duration-500'>
+                        <p> View all case studies</p>
+                        <div className='bg-white p-[5px]  transition-all duration-500  group-hover:p-4 text-black  rounded-full '>
+                            <MdArrowOutward className='hidden group-hover:block' />
+                        </div>
+
+                    </div>
                 </div>
 
             </div>
