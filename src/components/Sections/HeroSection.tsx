@@ -10,7 +10,9 @@ const HeroSection = () => {
         "Presentations"
     ];
     return (
-        <div data-scroll data-scroll-section data-scroll-speed="-.3" className='w-full h-screen pt-2 '>
+        <div data-scroll
+            data-scroll-section
+            data-scroll-speed="-.7" className='w-full h-screen pt-2 z-10 '>
             <div className='textStructures mt-32 px-[4vw]'>
                 {
                     headings.map((e, index) => {

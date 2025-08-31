@@ -1,8 +1,10 @@
 "use client";
+import { motion } from 'framer-motion';
 import React, { useState } from 'react'
 import { MdArrowOutward } from "react-icons/md";
 
 const FeaturedSection = () => {
+
     const items = [
         {
             "title": "Salience Labs",
@@ -87,12 +89,34 @@ const FeaturedSection = () => {
                 lg:top-1/2 
                 ${isLeft ? "lg:-left-[-0%] lg:-translate-x-1/2" : `lg:-right-[-0%] lg:translate-x-1/2`} 
                  lg:-translate-y-1/2  
-                text-[#CDEA68] text-[4vw] whitespace-nowrap text-semibold tracking-wider leading-none z-[9] transition-all duration-500
+                text-[#CDEA68] text-[4vw] whitespace-nowrap text-bold overflow-hidden tracking-tight leading-none z-[9] transition-all duration-500
             `}
                                 >
                                     {splitCharacters(title).map((e, i) => {
-                                        return <span key={i}>{e}</span>
+                                        const char = e === " " ? "\u00A0" : e;
+
+                                        return (
+                                            <motion.span
+                                                key={i}
+                                                initial={{ y: "100%" }}
+                                                animate={
+                                                    isImageHovered.index === index && isImageHovered.hovered
+                                                        ? { y: "0%" }
+                                                        : { y: "100%" }
+                                                }
+                                                transition={{
+                                                    ease: [0.68, -0.6, 0.32, 1.6], // 🔥 custom ease in-out bounce type
+                                                    duration: i * 0.05,
+                                                    // har ek ka actual duration            // har char thora delay ke sath
+                                                }}
+                                                className="inline-block"
+                                            >
+                                                {char}
+                                            </motion.span>
+                                        );
                                     })}
+
+
                                 </h1>
                                 <div className='flex w-full flex-row items-center justify-start gap-[0.5vw]'>
                                     <div className='h-[0.6vw] w-[0.6vw] rounded-full bg-white'></div>
@@ -103,8 +127,10 @@ const FeaturedSection = () => {
                                     onMouseLeave={() => setHovered(false, index, e.title)}
 
                                     style={{
-                                        backgroundImage: `url(${e.imagePath})`
-                                    }} className={` hover:${(isImageHovered.index === index && isImageHovered.hovered) && "scale-95"} transition-all duration-500 cursor-pointer h-full w-full bg-center bg-cover overflow-hidden rounded-xl`}></div>
+                                        backgroundImage: `url(${e.imagePath})`,
+
+
+                                    }} className={` ${isImageHovered.index === index && isImageHovered.hovered ? "hover:scale-95" : "hover:scale-0"} transition-all duration-500 cursor-pointer h-full w-full bg-center bg-cover overflow-hidden rounded-xl`}></div>
                             </div>
                         );
                     })}

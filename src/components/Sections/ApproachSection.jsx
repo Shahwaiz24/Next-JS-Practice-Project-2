@@ -5,7 +5,7 @@ const ApproachSection = () => {
     const [hovered, setHovered] = useState(false);
 
     return (
-        <div className='w-full rounded-tr-3xl rounded-tl-3xl  bg-[#CDEA68] pt-20 '>
+        <div data-scroll data-scroll-section data-scroll-speed="-.3" className='w-full rounded-tr-3xl rounded-tl-3xl  bg-[#CDEA68] pt-20  relative z-10'>
             <div className='px-[4vw] pb-[4vw] lg:text-[4vw] text-[5vw] font-medium tracking-tight whitespace-pre-line text-zinc-900 leading-none'>
                 <p>We craft category-defining presentations, brand identities, and digital experiences that drive funding, sales, and market leadership.</p>
             </div>

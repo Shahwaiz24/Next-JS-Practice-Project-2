@@ -24,8 +24,8 @@ const PlayEyesSection = () => {
     }, [])
 
     return (
-        <div className='lg:block hidden w-full h-screen bg-white'>
-            <div data-scroll data-scroll-speed="-.2" className='w-full h-full bg-center bg-cover bg-[url("/images/ochi-animated-bg.jpg")] flex items-center justify-center'>
+        <div className='lg:block hidden w-full h-screen bg-white overflow-hidden'>
+            <div data-scroll data-scroll-speed="-.7" className='w-full h-full bg-center bg-cover bg-[url("/images/ochi-animated-bg.jpg")] flex items-center justify-center'>
                 <div className='flex items-center justify-between gap-16'>
 
                     <div className='w-[15vw] h-[15vw] rounded-full bg-white flex items-center justify-center'>
